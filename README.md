@@ -16,27 +16,28 @@ Step 1 Distortion Correction: Compute the camera calibration matrix and distorti
 - key items: cv2.findChessboardCorners, cv2.drawChessboardCorners, cv2.calibrateCamera
 - example image
 
- ![alt text][IdentifyChessboardCorners.png]
+![alt text][IdentifyChessboardCorners.png]
  
- ![alt text][Undistort_images.png]
+![alt text][Undistort_images.png]
  
 Step 2 Perspective Transform: Apply a perspective transform to rectify binary image ("birds-eye view").
 - key items: cv2.getPerspectiveTransform(src, dst), cv2.warpPerspective
 - example image
- ![alt text][bridview_images.png]
+
+![alt text][bridview_images.png]
  
 Step 3 Apply Binary Thresholds: Use color transforms, gradients, etc., to create a thresholded binary image.
 - key: cv2.COLOR_BGR2HLS, cv2.COLOR_BGR2LUV, cv2.COLOR_BGR2Lab
 - example image
 
- ![alt text][ApplyBinaryThresholds.png]
+![alt text][ApplyBinaryThresholds.png]
  
 Step 4 Fitting a polynomial to the lane lines: Detect lane pixels and fit to find the lane boundary. 
 Step 5 Lane curvature & vehicle position: Determine the curvature of the lane and vehicle position with respect to center.
 - key: np.polyfit, cv2.polylines
 - example image: 
 
- ![alt text][FitPolynomial_ApplyToOriginalImages.png]
+![alt text][FitPolynomial_ApplyToOriginalImages.png]
  
 Step 6: Warp the detected lane boundaries back onto the original image.
 Step 7: Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.

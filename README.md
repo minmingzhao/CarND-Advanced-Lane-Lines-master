@@ -17,6 +17,7 @@ Step 1 Distortion Correction: Compute the camera calibration matrix and distorti
 - example image
 
  ![alt text][IdentifyChessboardCorners.png]
+ 
  ![alt text][Undistort_images.png]
  
 Step 2 Perspective Transform: Apply a perspective transform to rectify binary image ("birds-eye view").

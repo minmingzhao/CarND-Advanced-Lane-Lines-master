@@ -65,3 +65,10 @@ project_video.mp4: The script successfully identified all the lane boundary and 
 challenge_video.mp4: The script was able to identify most of the conditions except the big shadow when the vehicle cross the under of the bridge. 
 
 harder_challenge_video.mp4: The script was not able to identify at an acceptable accuracy. And this still needs improvement. 
+
+#### Discussion on further possible Improvement: 
+As we could see from the result_MZ.mp4 that the curvature radius estimation is not still perfect as sometimes the curvature jump to a high value while most of the time is at around 1 km (The actual curvature is around 1km). I belive this could be done better if 
+- I assign a longer forward estimation in src and dst region. This could be done easily but be careful on the accuracy of those further forward section. 
+- The current found_search and blind_search algorithm works like as long as there is some pixel of binary value 1 we will remain using found_search. I belive this make senses as it works like a filter to smooth lane detection. But one may find a better smart way to fulfill this function. 
+
+Another major thing is from some isolated frame of challenge video and most of the even harder challenge curvy moutrain video, the lane detection is not perfect. As a matter of fact, some of them are terrible. I believe this is due to static (i.e. hard coded) binary threshold setting does not work for all. In the future, a better detection should dynamically evaluate the result of each images after binary threshold and compare to previous images to avoid some huge jumping errors. 
